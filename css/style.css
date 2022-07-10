@@ -1,0 +1,361 @@
+@import "null.css";
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Black.woff2") format("woff2"), url("../fonts/Roboto-Black.woff") format("woff");
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff");
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Lato-Regular.woff2") format("woff2"), url("../fonts/Lato-Regular.woff") format("woff");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Medium.woff2") format("woff2"), url("../fonts/Roboto-Medium.woff") format("woff");
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+}
+
+body {
+	font-family: "Roboto", "sens-serif";
+	font-weight: 400;
+	overflow-x: hidden;
+	padding: 50px;
+	background-color: black;
+}
+
+.wrapper {
+	/* overflow: hidden; */
+	min-height: 100%;
+}
+
+.links {
+	margin-bottom: 200px;
+}
+
+.example {
+	display: block;
+	color: red;
+	font-size: 30px;
+	transition-duration: 0s;
+}
+
+.example:hover {
+	color: blue;
+	font-size: 50px;
+}
+
+.example-two {
+	display: block;
+	color: red;
+	font-size: 30px;
+	transition: all 1s linear 1s;
+	margin-top: 50px;
+}
+.example-two:hover {
+	color: blue;
+	font-size: 50px;
+	/* transform: rotate(10deg); */
+}
+
+.block {
+	/* width: 200px;
+	height: 200px;
+	background-color: yellow;
+	animation-name: example-two;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease; */
+}
+.block__item {
+	/* transform: rotate(45deg); */
+	width: 200px;
+	height: 200px;
+	background-color: yellowgreen;
+	animation-name: example;
+	animation-duration: 3s;
+	/* animation-timing-function: steps(8, start); */
+	/* animation-delay: 2s; */
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	position: relative;
+	animation-direction: normal;
+	transform: translate(200px, 0px);
+	animation-fill-mode: backwards;
+}
+
+.block__item:hover {
+	animation-play-state: paused;
+}
+
+.block__item::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	width: 200px;
+	height: 200px;
+	background-color: yellow;
+	animation-name: example-two;
+	animation-duration: 3s;
+	animation-iteration-count: 3;
+	/* animation-timing-function: linear;
+	transform: rotate(45deg); */
+	transform: translate(500px, 0px);
+}
+
+@keyframes example {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	100% {
+		transform: translate(400px, 0px);
+	}
+}
+
+/* @keyframes example-two {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+} */
+
+.game {
+	position: relative;
+}
+.game__item_ball {
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+	background-color: red;
+	/* margin: 0 auto; */
+	position: absolute;
+	top: 710px;
+	left: 45%;
+	animation-name: ball, ball-two;
+	animation-duration: 4s, 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: 2, 3;
+	animation-iteration-count: infinite;
+	animation-direction: alternate-reverse;
+}
+
+.game__item_ball::before {
+	border-radius: 10%;
+	content: "";
+	width: 50px;
+	height: 50px;
+	background-color: red;
+	position: absolute;
+	top: 20px;
+	left: 95px;
+	animation-name: psevdo;
+	animation-duration: 2.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+.game__item_ball::after {
+	border-radius: 10%;
+	content: "";
+	width: 50px;
+	height: 50px;
+	background-color: red;
+	position: absolute;
+	top: 20px;
+	left: -55px;
+	animation-name: psevdo;
+	animation-duration: 2.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+.game__item_top {
+	width: 250px;
+	height: 8px;
+	background-color: white;
+	border-radius: 20px;
+	position: absolute;
+	top: 0;
+	left: 41%;
+	animation-name: item-top;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes item-top {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	40% {
+		transform: translate(200px, 0px);
+	}
+	80% {
+		transform: translate(-200px, 0px);
+	}
+	100% {
+		transform: translate(0px, 0px);
+	}
+}
+.game__item_bottom {
+	width: 250px;
+	height: 8px;
+	background-color: white;
+	border-radius: 20px;
+	position: absolute;
+	top: 800px;
+	left: 41%;
+	animation-name: item-bottom;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes item-bottom {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	40% {
+		transform: translate(-200px, 0px);
+	}
+	80% {
+		transform: translate(200px, 0px);
+	}
+	100% {
+		transform: translate(0px, 0px);
+	}
+}
+.game__item_right {
+	width: 8px;
+	height: 250px;
+	background-color: white;
+	border-radius: 20px;
+	position: absolute;
+	top: 310px;
+	left: 70%;
+	animation-name: item-right;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+.game__item_left {
+	width: 8px;
+	height: 250px;
+	background-color: white;
+	border-radius: 20px;
+	position: absolute;
+	top: 310px;
+	left: 25%;
+	animation-name: item-left;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes item-left {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	40% {
+		transform: translate(0px, 200px);
+	}
+	80% {
+		transform: translate(0px, -200px);
+	}
+	100% {
+		transform: translate(0px, 0px);
+	}
+}
+
+@keyframes item-right {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	40% {
+		transform: translate(0px, -200px);
+	}
+	80% {
+		transform: translate(0px, 200px);
+	}
+	100% {
+		transform: translate(0px, 0px);
+	}
+}
+
+@keyframes ball {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	25% {
+		transform: translate(-360px, -300px) rotate(360deg);
+		/* border-radius: 0%; */
+		/* background-color: seagreen; */
+	}
+	50% {
+		transform: translate(0px, -700px);
+		border-radius: 0%;
+	}
+	75% {
+		transform: translate(360px, -310px) rotate(360deg);
+		/* border-radius: 0%; */
+	}
+	100% {
+		transform: translate(0px, 0px);
+	}
+}
+
+@keyframes ball-two {
+	0% {
+	}
+	25% {
+		background-color: blue;
+	}
+	50% {
+		background-color: yellow;
+	}
+	75% {
+		background-color: purple;
+	}
+	100% {
+		background-color: seagreen;
+	}
+}
+
+@keyframes psevdo {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		background-color: blue;
+	}
+	50% {
+		transform: rotate(360deg);
+		background-color: yellow;
+	}
+	100% {
+		transform: rotate(-360deg);
+		background-color: seagreen;
+	}
+}
+
+.game__item_ball:hover {
+	animation-play-state: paused;
+}
